@@ -67,8 +67,7 @@ print('Собственные векторы матрицы Σc:\n', np.round(v,
 
 # Номер 2.4
 print('\nНомер 2.4')
-d = {l[i]: i for i in range(len(l))}
-ind = d[max(l)]
+ind = np.argmax(np.abs(l))
 print('Индекс, соответствующий первой главной компоненте:', ind)
 
 # Номер 2.5
@@ -150,8 +149,8 @@ one = np.ones((n, n))
 Kc = np.array(np.array(E - one / n).dot(K)).dot(E - one / n)
 
 Kl, Kv = np.linalg.eig(Kc)
-d = {np.abs(Kl[i]): i for i in range(n)}
-ind = d[max(np.abs(Kl))]
+ind = np.argmax(np.abs(Kl))
+
 
 Kvec = Kv[:, ind]
 print('Первая главная компонента:\n ', np.round(Kvec.real, 4))
